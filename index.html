@@ -199,23 +199,23 @@
       flex-shrink: 0;
     }
 
-    /* Welfare cards (navy section — kept dark for contrast) */
+    /* Welfare cards */
     .welfare-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: #ffffff;
+      border: 1px solid #bdd9e3;
       border-top: 2px solid var(--sage);
       border-radius: 4px;
       padding: 1.75rem 2rem;
-      transition: background 0.2s;
+      transition: background 0.2s, box-shadow 0.2s;
       cursor: pointer;
     }
-    .welfare-card:hover { background: rgba(255,255,255,0.1); }
+    .welfare-card:hover { background: #f4fafc; box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
     .welfare-num {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       font-size: 3.5rem;
       line-height: 1;
-      color: rgba(255,255,255,0.15);
+      color: rgba(107,140,114,0.22);
     }
 
     /* Facility cards */
@@ -534,13 +534,13 @@
         </div>
       </div>
 
-      <div class="reveal reveal-d2" style="background:var(--navy);border-radius:4px;padding:2rem;position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.2)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;color:rgba(255,255,255,0.06);position:absolute;top:.5rem;right:1rem;line-height:1;pointer-events:none;user-select:none;">療</div>
+      <div class="reveal reveal-d2" style="background:#2c7873;border-radius:4px;padding:2rem;position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.2)'" onmouseout="this.style.boxShadow='none'">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;color:rgba(255,255,255,0.1);position:absolute;top:.5rem;right:1rem;line-height:1;pointer-events:none;user-select:none;">療</div>
         <div style="position:relative;">
-          <p style="font-size:.625rem;letter-spacing:.2em;color:rgba(255,255,255,0.45);font-weight:500;margin-bottom:8px;">MEDICAL CARE WARD</p>
+          <p style="font-size:.625rem;letter-spacing:.2em;color:rgba(255,255,255,0.55);font-weight:500;margin-bottom:8px;">MEDICAL CARE WARD</p>
           <h3 class="font-serif-jp" style="font-size:1.25rem;color:#fff;margin-bottom:12px;">医療療養病棟</h3>
-          <p style="font-size:.875rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:1.25rem;">長期的な療養が必要な患者様に、医療的ケアと療養生活を総合的に提供します。在宅復帰に向けたリハビリも積極的に行います。</p>
-          <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;font-weight:500;color:rgba(255,255,255,0.8);text-decoration:none;">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
+          <p style="font-size:.875rem;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:1.25rem;">長期的な療養が必要な患者様に、医療的ケアと療養生活を総合的に提供します。在宅復帰に向けたリハビリも積極的に行います。</p>
+          <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;font-weight:500;color:rgba(255,255,255,0.9);text-decoration:none;">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -632,12 +632,12 @@
 <!-- ================================================
      WELFARE SERVICES — §04（ネイビー背景は維持）
 ================================================= -->
-<section style="background:var(--navy);padding:5rem 1.5rem;" class="reveal" id="welfare">
+<section style="background:#eaf5f8;padding:5rem 1.5rem;" class="reveal" id="welfare">
   <div style="max-width:1280px;margin:0 auto;">
 
     <div style="margin-bottom:2.5rem;">
-      <p class="font-garamond" style="font-style:italic;font-size:1.25rem;letter-spacing:.12em;color:rgba(255,255,255,0.2);margin-bottom:4px;">Home Care Services</p>
-      <h2 class="font-serif-jp" style="font-size:1.5rem;font-weight:700;color:#fff;">在宅サービス</h2>
+      <p class="font-garamond" style="font-style:italic;font-size:1.25rem;letter-spacing:.12em;color:var(--border);margin-bottom:4px;">Home Care Services</p>
+      <h2 class="font-serif-jp" style="font-size:1.5rem;font-weight:700;color:var(--navy);">在宅サービス</h2>
       <div style="width:2rem;height:2px;background:var(--sage);margin-top:1rem;"></div>
     </div>
 
@@ -648,10 +648,10 @@
           <span class="welfare-num">01</span>
           <div>
             <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:4px;">DAY REHABILITATION</p>
-            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:#fff;">通所リハビリテーション</h3>
+            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:var(--navy);">通所リハビリテーション</h3>
           </div>
         </div>
-        <p style="font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1rem;">自宅から通いながら、理学療法・作業療法によるリハビリテーションを受けることができます。機能回復と社会参加を支援します。</p>
+        <p style="font-size:.875rem;color:var(--text-mid);line-height:1.8;margin-bottom:1rem;">自宅から通いながら、理学療法・作業療法によるリハビリテーションを受けることができます。機能回復と社会参加を支援します。</p>
         <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;color:var(--sage);text-decoration:none;">詳しく見る <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
       </div>
 
@@ -660,10 +660,10 @@
           <span class="welfare-num">02</span>
           <div>
             <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:4px;">HOME CARE MANAGEMENT</p>
-            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:#fff;">居宅療養管理指導</h3>
+            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:var(--navy);">居宅療養管理指導</h3>
           </div>
         </div>
-        <p style="font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1rem;">医師・薬剤師・歯科衛生士などがご自宅を訪問し、療養上の管理・指導を行います。安心して在宅療養を続けるためのサポートをします。</p>
+        <p style="font-size:.875rem;color:var(--text-mid);line-height:1.8;margin-bottom:1rem;">医師・薬剤師・歯科衛生士などがご自宅を訪問し、療養上の管理・指導を行います。安心して在宅療養を続けるためのサポートをします。</p>
         <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;color:var(--sage);text-decoration:none;">詳しく見る <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
       </div>
 
@@ -672,10 +672,10 @@
           <span class="welfare-num">03</span>
           <div>
             <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:4px;">HOME NURSING</p>
-            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:#fff;">訪問看護</h3>
+            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:var(--navy);">訪問看護</h3>
           </div>
         </div>
-        <p style="font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1rem;">看護師や保健師がご自宅を訪問し、病状の観察・医療処置・療養生活の指導などを行います。安心して在宅療養を続けていただけます。</p>
+        <p style="font-size:.875rem;color:var(--text-mid);line-height:1.8;margin-bottom:1rem;">看護師や保健師がご自宅を訪問し、病状の観察・医療処置・療養生活の指導などを行います。安心して在宅療養を続けていただけます。</p>
         <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;color:var(--sage);text-decoration:none;">詳しく見る <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
       </div>
 
@@ -684,10 +684,10 @@
           <span class="welfare-num">04</span>
           <div>
             <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:4px;">HOME REHABILITATION</p>
-            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:#fff;">訪問リハビリテーション</h3>
+            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:var(--navy);">訪問リハビリテーション</h3>
           </div>
         </div>
-        <p style="font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1rem;">理学療法士・作業療法士がご自宅を訪問し、日常生活動作の改善や機能維持のためのリハビリテーションを提供します。</p>
+        <p style="font-size:.875rem;color:var(--text-mid);line-height:1.8;margin-bottom:1rem;">理学療法士・作業療法士がご自宅を訪問し、日常生活動作の改善や機能維持のためのリハビリテーションを提供します。</p>
         <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;color:var(--sage);text-decoration:none;">詳しく見る <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
       </div>
 
@@ -758,7 +758,7 @@
 <!-- ================================================
      RECRUITMENT BANNER（ダーク背景は維持）
 ================================================= -->
-<section style="background:var(--navy-deep);padding:4rem 1.5rem;" class="reveal" id="recruit">
+<section style="background:#2c7873;padding:4rem 1.5rem;" class="reveal" id="recruit">
   <div style="max-width:1280px;margin:0 auto;">
     <div id="recruit-inner">
       <div style="margin-bottom:2rem;">
