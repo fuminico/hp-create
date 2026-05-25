@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>河北病院 — 医療法人河北会 | 大阪府枚方市の急性期病院</title>
-  <meta name="description" content="河北病院は大阪府枚方市にある急性期病院です。入院・外来診療から通所リハビリ・訪問看護まで、地域の医療・福祉を幅広く支えています。">
+  <title>河北病院 — 医療法人河北会 | 大阪府寝屋川市の医療療養型病院</title>
+  <meta name="description" content="大阪府寝屋川市にある河北病院は、介護医療・訪問リハビリテーションも兼ね備えた医療療養型病院です。通所リハビリ・訪問看護・居宅介護支援など在宅サービスも充実しています。">
+  <meta name="keywords" content="河北病院,医療法人河北会,寝屋川市,医療療養型,通所リハビリ,訪問看護,訪問リハビリテーション,リハビリ,介護">
 
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -24,16 +25,17 @@
     :root {
       --navy:        #1e3355;
       --navy-deep:   #152a46;
-      --navy-light:  #253f66;
       --warm-white:  #f9f8f5;
       --off-white:   #f0ede8;
       --sage:        #6b8c72;
       --sage-light:  #e8ede8;
+      --sage-pale:   #f0f5f1;
       --terracotta:  #b8673a;
       --terra-dark:  #9a5530;
       --text-dark:   #1a1a1a;
       --text-mid:    #5a5a6a;
       --border:      #d8d4cc;
+      --border-lt:   #e8e4dc;
     }
 
     html { scroll-behavior: smooth; }
@@ -60,7 +62,6 @@
       font-size: 1.25rem;
     }
 
-    /* Large ghost number behind section headings */
     .section-ghost-num {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
@@ -76,20 +77,20 @@
     }
 
     /* =============================================
-       HEADER
+       HEADER — 白背景・清潔感
     ============================================= */
     #site-header {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: var(--navy);
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-lt);
       transition: box-shadow 0.3s;
     }
     #site-header.scrolled {
-      box-shadow: 0 2px 24px rgba(0,0,0,0.18);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
     }
 
-    /* Dropdown nav */
     .nav-parent { position: relative; }
     .nav-dropdown {
       display: none;
@@ -99,7 +100,7 @@
       min-width: 220px;
       background: #fff;
       border-top: 2px solid var(--sage);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.09);
       z-index: 200;
     }
     .nav-parent:hover .nav-dropdown { display: block; }
@@ -115,7 +116,6 @@
       color: var(--navy);
     }
 
-    /* Mobile menu */
     #mobile-menu {
       max-height: 0;
       overflow: hidden;
@@ -133,21 +133,18 @@
       letter-spacing: 0.04em;
     }
 
-    /* Photo placeholder — gradient with subtle diagonal lines */
-    .photo-block {
-      background: linear-gradient(145deg, #1e3355 0%, #2c4e7a 55%, #6b8c72 100%);
+    /* Hero photo with actual img */
+    .hero-img-wrap {
       position: relative;
+      width: 100%;
       overflow: hidden;
+      border-radius: 6px;
     }
-    .photo-block::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        -55deg,
-        transparent 0px, transparent 38px,
-        rgba(255,255,255,0.025) 38px, rgba(255,255,255,0.025) 39px
-      );
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* Quick-access button arrow */
@@ -176,7 +173,7 @@
     .tag-recruit  { background: #e6ebf5; color: var(--navy); }
 
     /* =============================================
-       SECTIONS — shared
+       SHARED
     ============================================= */
     .section-divider {
       width: 2rem;
@@ -185,9 +182,6 @@
       margin-top: 1rem;
     }
 
-    /* =============================================
-       ABOUT — 3 point cards
-    ============================================= */
     .about-point {
       background: var(--off-white);
       border-radius: 4px;
@@ -205,9 +199,7 @@
       flex-shrink: 0;
     }
 
-    /* =============================================
-       WELFARE
-    ============================================= */
+    /* Welfare cards (navy section — kept dark for contrast) */
     .welfare-card {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.1);
@@ -226,9 +218,7 @@
       color: rgba(255,255,255,0.15);
     }
 
-    /* =============================================
-       FACILITY CARDS
-    ============================================= */
+    /* Facility cards */
     .facility-card {
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -239,9 +229,14 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       transform: translateY(-2px);
     }
-    .facility-thumb {
-      width: 100%;
-      aspect-ratio: 16/9;
+    .facility-thumb { width: 100%; aspect-ratio: 16/9; }
+
+    /* =============================================
+       FOOTER — 淡いセージグリーン背景
+    ============================================= */
+    #site-footer {
+      background: var(--sage-pale);
+      border-top: 1px solid #d4ddd5;
     }
 
     /* =============================================
@@ -263,7 +258,7 @@
 <body>
 
 <!-- ================================================
-     HEADER
+     HEADER — 白背景・清潔感
 ================================================= -->
 <header id="site-header">
   <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
@@ -271,8 +266,8 @@
 
       <!-- Logo -->
       <a href="#" style="display:flex;flex-direction:column;text-decoration:none;">
-        <span style="font-size:0.625rem;letter-spacing:0.2em;color:rgba(255,255,255,0.45);font-family:'Noto Sans JP',sans-serif;font-weight:300;">医療法人河北会</span>
-        <span class="font-serif-jp" style="font-size:1.375rem;color:#fff;font-weight:700;line-height:1.2;letter-spacing:0.04em;">河北病院</span>
+        <span style="font-size:.625rem;letter-spacing:.2em;color:rgba(30,51,85,0.5);font-family:'Noto Sans JP',sans-serif;font-weight:300;">医療法人河北会</span>
+        <span class="font-serif-jp" style="font-size:1.375rem;color:var(--navy);font-weight:700;line-height:1.2;letter-spacing:.04em;">河北病院</span>
       </a>
 
       <!-- Desktop Nav -->
@@ -280,111 +275,109 @@
         <div style="display:flex;align-items:center;gap:0;">
 
           <div class="nav-parent">
-            <button style="display:flex;align-items:center;gap:4px;padding:0 14px;height:64px;font-size:0.8125rem;color:rgba(255,255,255,0.78);background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:color .15s;"
-              onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.78)'">
+            <button style="display:flex;align-items:center;gap:4px;padding:0 14px;height:64px;font-size:.8125rem;color:#555;background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:color .15s;"
+              onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#555'">
               診療・外来
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:.5;margin-top:1px;"><path d="M19 9l-7 7-7-7"/></svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" style="margin-top:1px;"><path d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="nav-dropdown">
               <a href="#">入院・外来のご案内</a>
               <a href="#">外来の時間表</a>
               <a href="#">診療科の紹介</a>
-              <a href="#">はじめての方へ</a>
+              <a href="#">お見舞に来られる方へ</a>
             </div>
           </div>
 
           <div class="nav-parent">
-            <button style="display:flex;align-items:center;gap:4px;padding:0 14px;height:64px;font-size:0.8125rem;color:rgba(255,255,255,0.78);background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:color .15s;"
-              onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.78)'">
+            <button style="display:flex;align-items:center;gap:4px;padding:0 14px;height:64px;font-size:.8125rem;color:#555;background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:color .15s;"
+              onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#555'">
               病院について
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:.5;margin-top:1px;"><path d="M19 9l-7 7-7-7"/></svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" style="margin-top:1px;"><path d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="nav-dropdown">
               <a href="#">基本理念・基本方針</a>
               <a href="#">病院の概要</a>
-              <a href="#">急性期医療</a>
+              <a href="#">医療療養病棟</a>
+              <a href="#">一般病棟（障害者病棟）</a>
               <a href="#">医療安全管理指針</a>
-              <a href="#">マップと経路</a>
+              <a href="#">マップと交通</a>
               <a href="#">採用情報</a>
             </div>
           </div>
 
           <div class="nav-parent">
-            <button style="display:flex;align-items:center;gap:4px;padding:0 14px;height:64px;font-size:0.8125rem;color:rgba(255,255,255,0.78);background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:color .15s;"
-              onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.78)'">
-              福祉サービス
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:.5;margin-top:1px;"><path d="M19 9l-7 7-7-7"/></svg>
+            <button style="display:flex;align-items:center;gap:4px;padding:0 14px;height:64px;font-size:.8125rem;color:#555;background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:color .15s;"
+              onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#555'">
+              在宅サービス
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" style="margin-top:1px;"><path d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="nav-dropdown">
               <a href="#">通所リハビリテーション</a>
-              <a href="#">居宅介護支援事業所</a>
+              <a href="#">居宅療養管理指導</a>
               <a href="#">訪問看護のご案内</a>
               <a href="#">訪問リハビリテーション</a>
             </div>
           </div>
 
           <div class="nav-parent">
-            <button style="display:flex;align-items:center;gap:4px;padding:0 14px;height:64px;font-size:0.8125rem;color:rgba(255,255,255,0.78);background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:color .15s;"
-              onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.78)'">
+            <button style="display:flex;align-items:center;gap:4px;padding:0 14px;height:64px;font-size:.8125rem;color:#555;background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:color .15s;"
+              onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#555'">
               関連施設
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:.5;margin-top:1px;"><path d="M19 9l-7 7-7-7"/></svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" style="margin-top:1px;"><path d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="nav-dropdown">
-              <a href="#">住宅型有料老人ホーム スマイル</a>
-              <a href="#">介護老人保健施設及び診療所</a>
-              <a href="#">訪問ステーション及び診療所</a>
-              <a href="#">デイリハ河北</a>
+              <a href="#">居宅介護支援事業所　かほく</a>
+              <a href="#">訪問介護ステーション　かほく</a>
             </div>
           </div>
 
           <div style="display:flex;align-items:center;gap:8px;margin-left:16px;">
-            <a href="#" style="font-size:0.8rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 10px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">採用情報</a>
-            <a href="#" style="font-size:0.8rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 10px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">お問い合わせ</a>
-            <a href="#" style="font-size:0.8rem;font-weight:500;color:#fff;background:var(--terracotta);padding:8px 16px;border-radius:3px;text-decoration:none;transition:background .15s;" onmouseover="this.style.background='var(--terra-dark)'" onmouseout="this.style.background='var(--terracotta)'">外来時間表</a>
+            <a href="#" style="font-size:.8rem;color:var(--text-mid);text-decoration:none;padding:6px 10px;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='var(--text-mid)'">採用情報</a>
+            <a href="#" style="font-size:.8rem;color:var(--text-mid);text-decoration:none;padding:6px 10px;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='var(--text-mid)'">お問い合わせ</a>
+            <a href="#" style="font-size:.8rem;font-weight:500;color:#fff;background:var(--terracotta);padding:8px 16px;border-radius:3px;text-decoration:none;transition:background .15s;" onmouseover="this.style.background='var(--terra-dark)'" onmouseout="this.style.background='var(--terracotta)'">外来時間表</a>
           </div>
         </div>
       </nav>
 
-      <!-- Hamburger (mobile) -->
+      <!-- Hamburger -->
       <button id="hamburger" aria-label="メニューを開く" style="display:flex;flex-direction:column;gap:5px;padding:8px;background:none;border:none;cursor:pointer;" onclick="toggleMenu()">
-        <span id="hb1" style="display:block;width:22px;height:1.5px;background:#fff;transition:transform .3s, opacity .3s;"></span>
-        <span id="hb2" style="display:block;width:22px;height:1.5px;background:#fff;transition:opacity .3s;"></span>
-        <span id="hb3" style="display:block;width:22px;height:1.5px;background:#fff;transition:transform .3s;"></span>
+        <span id="hb1" style="display:block;width:22px;height:1.5px;background:#333;transition:transform .3s, opacity .3s;"></span>
+        <span id="hb2" style="display:block;width:22px;height:1.5px;background:#333;transition:opacity .3s;"></span>
+        <span id="hb3" style="display:block;width:22px;height:1.5px;background:#333;transition:transform .3s;"></span>
       </button>
     </div>
   </div>
 
   <!-- Mobile Menu Panel -->
-  <div id="mobile-menu" style="background:#152a46;border-top:1px solid rgba(255,255,255,0.08);">
+  <div id="mobile-menu" style="background:#f8f7f4;border-top:1px solid var(--border-lt);">
     <div style="padding:1rem 1.5rem 1.5rem;">
-      <div style="border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:1rem;margin-bottom:1rem;">
-        <p style="font-size:.625rem;letter-spacing:.2em;color:rgba(255,255,255,0.35);margin-bottom:.5rem;">診療・外来</p>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">入院・外来のご案内</a>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">外来の時間表</a>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">診療科の紹介</a>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">はじめての方へ</a>
+      <div style="border-bottom:1px solid var(--border);padding-bottom:1rem;margin-bottom:1rem;">
+        <p style="font-size:.625rem;letter-spacing:.2em;color:var(--text-mid);margin-bottom:.5rem;">診療・外来</p>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">入院・外来のご案内</a>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">外来の時間表</a>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">診療科の紹介</a>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">お見舞に来られる方へ</a>
       </div>
-      <div style="border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:1rem;margin-bottom:1rem;">
-        <p style="font-size:.625rem;letter-spacing:.2em;color:rgba(255,255,255,0.35);margin-bottom:.5rem;">病院について</p>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">基本理念・基本方針</a>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">病院の概要</a>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">マップと経路</a>
+      <div style="border-bottom:1px solid var(--border);padding-bottom:1rem;margin-bottom:1rem;">
+        <p style="font-size:.625rem;letter-spacing:.2em;color:var(--text-mid);margin-bottom:.5rem;">病院について</p>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">基本理念・基本方針</a>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">病院の概要</a>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">マップと交通</a>
       </div>
-      <div style="border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:1rem;margin-bottom:1rem;">
-        <p style="font-size:.625rem;letter-spacing:.2em;color:rgba(255,255,255,0.35);margin-bottom:.5rem;">福祉サービス</p>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">通所リハビリテーション</a>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">居宅介護支援事業所</a>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">訪問看護・訪問リハビリ</a>
+      <div style="border-bottom:1px solid var(--border);padding-bottom:1rem;margin-bottom:1rem;">
+        <p style="font-size:.625rem;letter-spacing:.2em;color:var(--text-mid);margin-bottom:.5rem;">在宅サービス</p>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">通所リハビリテーション</a>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">居宅療養管理指導</a>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">訪問看護・訪問リハビリ</a>
       </div>
       <div style="margin-bottom:1rem;">
-        <p style="font-size:.625rem;letter-spacing:.2em;color:rgba(255,255,255,0.35);margin-bottom:.5rem;">関連施設</p>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">住宅型有料老人ホーム スマイル</a>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">介護老人保健施設及び診療所</a>
-        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:rgba(255,255,255,0.75);text-decoration:none;">デイリハ河北</a>
+        <p style="font-size:.625rem;letter-spacing:.2em;color:var(--text-mid);margin-bottom:.5rem;">関連施設</p>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">居宅介護支援事業所　かほく</a>
+        <a href="#" style="display:block;padding:6px 0;font-size:.875rem;color:#444;text-decoration:none;">訪問介護ステーション　かほく</a>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
         <a href="#" style="text-align:center;padding:11px;background:var(--terracotta);color:#fff;font-size:.875rem;border-radius:3px;text-decoration:none;">外来時間表</a>
-        <a href="#" style="text-align:center;padding:11px;border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:.875rem;border-radius:3px;text-decoration:none;">お問い合わせ</a>
+        <a href="#" style="text-align:center;padding:11px;border:1px solid var(--border);color:var(--navy);font-size:.875rem;border-radius:3px;text-decoration:none;">お問い合わせ</a>
       </div>
     </div>
   </div>
@@ -398,74 +391,63 @@
   <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;flex:1;display:flex;flex-direction:column;">
     <div style="flex:1;display:flex;flex-direction:column;gap:2.5rem;padding:3rem 0 2rem;" id="hero-inner">
 
-      <!-- Top: Text + Image -->
-      <div style="display:flex;flex-direction:column;gap:2.5rem;flex:1;align-items:stretch;">
+      <!-- Text block -->
+      <div style="display:flex;flex-direction:column;justify-content:center;">
+        <p class="font-garamond section-en" style="margin-bottom:12px;">Kahoku Hospital</p>
+        <h1 class="hero-headline" style="font-size:clamp(2.75rem,8vw,5rem);color:var(--navy);margin:0 0 20px;">
+          寝屋川の人々と、<br>共に。
+        </h1>
+        <div style="width:36px;height:2px;background:var(--terracotta);margin-bottom:20px;"></div>
+        <p style="font-size:.9375rem;color:var(--text-mid);line-height:1.9;max-width:420px;margin:0 0 2rem;">
+          医療療養から在宅支援まで。<br>
+          リハビリテーションを軸に、<br>
+          地域の皆様の生活を支え続けています。
+        </p>
 
-        <!-- Text block -->
-        <div style="display:flex;flex-direction:column;justify-content:center;">
-          <p class="font-garamond section-en" style="margin-bottom:12px;">Kahoku Hospital</p>
-          <h1 class="hero-headline" style="font-size:clamp(2.75rem,8vw,5rem);color:var(--navy);margin:0 0 20px;">
-            枚方の人々と、<br>共に。
-          </h1>
-          <div style="width:36px;height:2px;background:var(--terracotta);margin-bottom:20px;"></div>
-          <p style="font-size:0.9375rem;color:var(--text-mid);line-height:1.9;max-width:420px;margin:0 0 2rem;">
-            急性期医療から在宅支援まで。<br>
-            地域に根ざした、心ある医療を<br>
-            河北病院は大切にしています。
-          </p>
-
-          <!-- Quick access buttons -->
-          <div style="display:flex;flex-direction:column;gap:10px;max-width:380px;" id="quick-access">
-            <a href="#" class="qa-btn" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);background:#fff;border-radius:4px;text-decoration:none;transition:border-color .2s,background .2s;"
-              onmouseover="this.style.borderColor='var(--navy)';this.style.background='var(--off-white)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='#fff'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b8c72" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span style="font-size:.8125rem;font-weight:500;color:#444;font-family:'Noto Sans JP',sans-serif;">外来の時間表</span>
-              <svg class="qa-arrow" style="margin-left:auto;" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#" class="qa-btn" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);background:#fff;border-radius:4px;text-decoration:none;transition:border-color .2s,background .2s;"
-              onmouseover="this.style.borderColor='var(--navy)';this.style.background='var(--off-white)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='#fff'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b8c72" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
-              <span style="font-size:.8125rem;font-weight:500;color:#444;font-family:'Noto Sans JP',sans-serif;">地図・経路のご案内</span>
-              <svg class="qa-arrow" style="margin-left:auto;" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#" class="qa-btn" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);background:#fff;border-radius:4px;text-decoration:none;transition:border-color .2s,background .2s;"
-              onmouseover="this.style.borderColor='var(--navy)';this.style.background='var(--off-white)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='#fff'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b8c72" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span style="font-size:.8125rem;font-weight:500;color:#444;font-family:'Noto Sans JP',sans-serif;">はじめて来られた方へ</span>
-              <svg class="qa-arrow" style="margin-left:auto;" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
-            </a>
-          </div>
+        <!-- Quick access -->
+        <div style="display:flex;flex-direction:column;gap:10px;max-width:380px;" id="quick-access">
+          <a href="#" class="qa-btn" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);background:#fff;border-radius:4px;text-decoration:none;transition:border-color .2s,background .2s;"
+            onmouseover="this.style.borderColor='var(--navy)';this.style.background='var(--off-white)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='#fff'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b8c72" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span style="font-size:.8125rem;font-weight:500;color:#444;">外来の時間表</span>
+            <svg class="qa-arrow" style="margin-left:auto;" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="qa-btn" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);background:#fff;border-radius:4px;text-decoration:none;transition:border-color .2s,background .2s;"
+            onmouseover="this.style.borderColor='var(--navy)';this.style.background='var(--off-white)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='#fff'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b8c72" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+            <span style="font-size:.8125rem;font-weight:500;color:#444;">地図・交通のご案内</span>
+            <svg class="qa-arrow" style="margin-left:auto;" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="qa-btn" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);background:#fff;border-radius:4px;text-decoration:none;transition:border-color .2s,background .2s;"
+            onmouseover="this.style.borderColor='var(--navy)';this.style.background='var(--off-white)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='#fff'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b8c72" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span style="font-size:.8125rem;font-weight:500;color:#444;">お見舞に来られる方へ</span>
+            <svg class="qa-arrow" style="margin-left:auto;" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
         </div>
+      </div>
 
-        <!-- Photo block -->
-        <div style="position:relative;" id="hero-photo">
-          <div class="photo-block" style="width:100%;border-radius:6px;overflow:hidden;aspect-ratio:4/3;">
-            <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:2rem;z-index:1;">
-              <div>
-                <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.875rem;color:rgba(255,255,255,0.4);letter-spacing:.15em;">Kahoku Hospital</p>
-                <p style="font-size:.625rem;color:rgba(255,255,255,0.25);font-family:'Noto Sans JP',sans-serif;letter-spacing:.1em;margin-top:2px;">Hirakata City, Osaka</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Badge: 関連施設 -->
-          <div id="badge-facilities" style="display:none;position:absolute;bottom:-14px;left:-14px;background:#fff;border-radius:4px;padding:10px 14px;box-shadow:0 4px 16px rgba(0,0,0,0.1);">
-            <p style="font-size:.5625rem;color:var(--text-mid);letter-spacing:.15em;font-family:'Noto Sans JP',sans-serif;">関連施設</p>
-            <p class="font-garamond" style="font-size:2rem;font-weight:300;color:var(--navy);line-height:1.1;">4</p>
-          </div>
-
-          <!-- Badge: 診療科 -->
-          <div id="badge-dept" style="display:none;position:absolute;top:14px;right:-14px;background:var(--navy);border-radius:4px;padding:10px 14px;">
-            <p style="font-size:.5625rem;color:rgba(255,255,255,0.5);letter-spacing:.15em;font-family:'Noto Sans JP',sans-serif;">急性期医療</p>
-            <p class="font-garamond" style="font-size:.875rem;font-weight:300;color:#fff;line-height:1.3;margin-top:2px;">Acute Care</p>
-          </div>
+      <!-- Photo block -->
+      <div style="position:relative;" id="hero-photo">
+        <div class="hero-img-wrap" style="aspect-ratio:4/3;">
+          <img src="http://www.kahoku.or.jp/images/kahoku2019.jpg" alt="河北病院 外観" loading="eager">
+        </div>
+        <!-- Badge: 関連施設 -->
+        <div id="badge-facilities" style="display:none;position:absolute;bottom:-14px;left:-14px;background:#fff;border-radius:4px;padding:10px 14px;box-shadow:0 4px 16px rgba(0,0,0,0.1);border:1px solid var(--border-lt);">
+          <p style="font-size:.5625rem;color:var(--text-mid);letter-spacing:.15em;font-family:'Noto Sans JP',sans-serif;">関連施設</p>
+          <p class="font-garamond" style="font-size:2rem;font-weight:300;color:var(--navy);line-height:1.1;">2</p>
+        </div>
+        <!-- Badge: 病床数 -->
+        <div id="badge-dept" style="display:none;position:absolute;top:14px;right:-14px;background:var(--navy);border-radius:4px;padding:10px 14px;">
+          <p style="font-size:.5625rem;color:rgba(255,255,255,0.5);letter-spacing:.15em;font-family:'Noto Sans JP',sans-serif;">病床数</p>
+          <p class="font-garamond" style="font-size:1.25rem;font-weight:300;color:#fff;line-height:1.3;margin-top:2px;">170床</p>
         </div>
       </div>
 
       <!-- Scroll indicator -->
       <div style="display:flex;justify-content:center;padding-bottom:.5rem;">
-        <div id="scroll-ind" style="display:flex;flex-direction:column;align-items:center;gap:4px;opacity:.35;">
-          <span style="font-size:.5625rem;letter-spacing:.2em;color:var(--text-mid);font-family:'Noto Sans JP',sans-serif;">SCROLL</span>
+        <div id="scroll-ind" style="display:flex;flex-direction:column;align-items:center;gap:4px;opacity:.3;">
+          <span style="font-size:.5625rem;letter-spacing:.2em;color:var(--text-mid);">SCROLL</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5"><path d="M19 9l-7 7-7-7"/></svg>
         </div>
       </div>
@@ -481,7 +463,6 @@
   <div style="max-width:1280px;margin:0 auto;">
     <div id="news-inner">
 
-      <!-- Section heading -->
       <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;" id="news-head">
         <div style="position:relative;padding-bottom:.25rem;">
           <span class="section-ghost-num">01</span>
@@ -496,7 +477,6 @@
         </a>
       </div>
 
-      <!-- News list -->
       <div>
         <a href="#" class="news-row" style="display:flex;align-items:flex-start;gap:12px;padding:16px 10px;cursor:pointer;text-decoration:none;">
           <time style="font-size:.75rem;color:var(--text-mid);white-space:nowrap;padding-top:2px;min-width:84px;">2026.05.20</time>
@@ -506,7 +486,7 @@
         <a href="#" class="news-row" style="display:flex;align-items:flex-start;gap:12px;padding:16px 10px;cursor:pointer;text-decoration:none;">
           <time style="font-size:.75rem;color:var(--text-mid);white-space:nowrap;padding-top:2px;min-width:84px;">2026.05.15</time>
           <span class="tag tag-important">重要</span>
-          <span style="font-size:.875rem;color:#333;line-height:1.6;">外来診療時間変更のお知らせ（内科・整形外科）</span>
+          <span style="font-size:.875rem;color:#333;line-height:1.6;">外来診療時間変更のお知らせ（内科・皮膚科）</span>
         </a>
         <a href="#" class="news-row" style="display:flex;align-items:flex-start;gap:12px;padding:16px 10px;cursor:pointer;text-decoration:none;">
           <time style="font-size:.75rem;color:var(--text-mid);white-space:nowrap;padding-top:2px;min-width:84px;">2026.04.28</time>
@@ -536,47 +516,42 @@
 <section style="background:var(--sage-light);padding:5rem 1.5rem;" class="reveal" id="medical">
   <div style="max-width:1280px;margin:0 auto;">
 
-    <!-- Section heading -->
     <div style="position:relative;margin-bottom:2.5rem;">
       <span class="section-ghost-num">02</span>
       <p class="section-en" style="position:relative;z-index:1;margin-bottom:4px;">Medical Services</p>
-      <h2 class="font-serif-jp" style="font-size:1.5rem;font-weight:700;color:var(--navy);position:relative;z-index:1;">診療案内</h2>
+      <h2 class="font-serif-jp" style="font-size:1.5rem;font-weight:700;color:var(--navy);position:relative;z-index:1;">診療・入院案内</h2>
       <div class="section-divider"></div>
     </div>
 
-    <!-- 3 cards -->
     <div style="display:grid;grid-template-columns:1fr;gap:1.25rem;" id="medical-grid">
 
-      <!-- 外来 -->
       <div class="reveal reveal-d1" style="background:#fff;border-radius:4px;padding:2rem;position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.09)'" onmouseout="this.style.boxShadow='none'">
         <div style="font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;color:rgba(232,237,232,0.9);position:absolute;top:.5rem;right:1rem;line-height:1;pointer-events:none;user-select:none;">外</div>
         <div style="position:relative;">
           <p style="font-size:.625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:8px;">OUTPATIENT</p>
           <h3 class="font-serif-jp" style="font-size:1.25rem;color:var(--navy);margin-bottom:12px;">外来診療</h3>
-          <p style="font-size:.875rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.25rem;">内科・外科・整形外科・眼科など複数の診療科で、地域の皆様の健康を支えます。初診・再診ともにお気軽にご相談ください。</p>
-          <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;font-weight:500;color:var(--navy);text-decoration:none;">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
+          <p style="font-size:.875rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.25rem;">内科・皮膚科など複数の診療科で、地域の皆様の健康を支えます。かかりつけ医として、気軽にご相談ください。</p>
+          <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;font-weight:500;color:var(--navy);text-decoration:none;">外来の時間表 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <!-- 入院 -->
       <div class="reveal reveal-d2" style="background:var(--navy);border-radius:4px;padding:2rem;position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.2)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;color:rgba(255,255,255,0.06);position:absolute;top:.5rem;right:1rem;line-height:1;pointer-events:none;user-select:none;">入</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;color:rgba(255,255,255,0.06);position:absolute;top:.5rem;right:1rem;line-height:1;pointer-events:none;user-select:none;">療</div>
         <div style="position:relative;">
-          <p style="font-size:.625rem;letter-spacing:.2em;color:rgba(255,255,255,0.45);font-weight:500;margin-bottom:8px;">INPATIENT</p>
-          <h3 class="font-serif-jp" style="font-size:1.25rem;color:#fff;margin-bottom:12px;">入院のご案内</h3>
-          <p style="font-size:.875rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:1.25rem;">急性期病棟・一般病棟・回復期リハビリ病棟を備え、入院から退院後の在宅復帰まで一貫してサポートします。</p>
+          <p style="font-size:.625rem;letter-spacing:.2em;color:rgba(255,255,255,0.45);font-weight:500;margin-bottom:8px;">MEDICAL CARE WARD</p>
+          <h3 class="font-serif-jp" style="font-size:1.25rem;color:#fff;margin-bottom:12px;">医療療養病棟</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:1.25rem;">長期的な療養が必要な患者様に、医療的ケアと療養生活を総合的に提供します。在宅復帰に向けたリハビリも積極的に行います。</p>
           <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;font-weight:500;color:rgba(255,255,255,0.8);text-decoration:none;">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <!-- 診療科 -->
       <div class="reveal reveal-d3" style="background:#fff;border-radius:4px;padding:2rem;position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.09)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;color:rgba(232,237,232,0.9);position:absolute;top:.5rem;right:1rem;line-height:1;pointer-events:none;user-select:none;">科</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;color:rgba(232,237,232,0.9);position:absolute;top:.5rem;right:1rem;line-height:1;pointer-events:none;user-select:none;">般</div>
         <div style="position:relative;">
-          <p style="font-size:.625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:8px;">DEPARTMENTS</p>
-          <h3 class="font-serif-jp" style="font-size:1.25rem;color:var(--navy);margin-bottom:12px;">診療科の紹介</h3>
-          <p style="font-size:.875rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.25rem;">内科・消化器科・循環器科・外科・整形外科・リハビリテーション科など、幅広い診療科で地域医療を支えています。</p>
-          <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;font-weight:500;color:var(--navy);text-decoration:none;">一覧を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
+          <p style="font-size:.625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:8px;">GENERAL WARD</p>
+          <h3 class="font-serif-jp" style="font-size:1.25rem;color:var(--navy);margin-bottom:12px;">一般病棟（障害者病棟）</h3>
+          <p style="font-size:.875rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.25rem;">障害を持つ患者様のための一般病棟を設置。個別のニーズに応じたケアと生活支援を提供します。</p>
+          <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;font-weight:500;color:var(--navy);text-decoration:none;">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -592,14 +567,10 @@
   <div style="max-width:1280px;margin:0 auto;">
     <div id="about-inner">
 
-      <!-- Photo -->
+      <!-- Photo — 実際のサイトのキャッチ画像 -->
       <div style="margin-bottom:2.5rem;" id="about-photo">
-        <div class="photo-block" style="width:100%;border-radius:6px;overflow:hidden;aspect-ratio:16/9;position:relative;">
-          <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:1.5rem;z-index:1;">
-            <div>
-              <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.875rem;color:rgba(255,255,255,0.35);letter-spacing:.12em;">Since 2006 — Hirakata, Osaka</p>
-            </div>
-          </div>
+        <div class="hero-img-wrap" style="aspect-ratio:16/9;">
+          <img src="http://www.kahoku.or.jp/images/imgcatch.jpg" alt="河北病院" loading="lazy">
         </div>
       </div>
 
@@ -612,7 +583,6 @@
           <div class="section-divider"></div>
         </div>
 
-        <!-- 理念 blockquote -->
         <blockquote style="border-left:2px solid var(--terracotta);padding-left:1.25rem;margin:0 0 1.75rem;">
           <p class="font-serif-jp" style="font-size:1.25rem;color:var(--navy);line-height:1.7;font-weight:600;">
             地域に根ざした、<br>心ある医療を。
@@ -621,30 +591,29 @@
         </blockquote>
 
         <p style="font-size:.875rem;color:var(--text-mid);line-height:1.9;margin-bottom:1.75rem;">
-          河北病院は大阪府枚方市に位置する急性期病院として、長年にわたり地域の医療を担ってまいりました。急性期医療から回復期リハビリ、在宅支援まで、一人ひとりの患者様に寄り添った医療を提供しています。
+          河北病院は大阪府寝屋川市に位置する医療療養型病院として、昭和60年の設立以来、地域の医療・介護を担ってまいりました。長期療養から在宅支援まで、一人ひとりの患者様に寄り添ったケアを提供しています。
         </p>
 
-        <!-- 3 points -->
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:2rem;">
           <div class="about-point">
             <span class="about-point-num">01</span>
             <div>
-              <h4 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:4px;">急性期医療の充実</h4>
-              <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">高度な急性期医療と一般病床・回復期病床を整備し、幅広い患者様のニーズに対応します。</p>
+              <h4 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:4px;">医療療養・リハビリテーション</h4>
+              <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">170床の医療療養病棟・一般病棟を整備。長期療養が必要な患者様を多職種チームで支えます。</p>
             </div>
           </div>
           <div class="about-point">
             <span class="about-point-num">02</span>
             <div>
-              <h4 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:4px;">地域連携の強化</h4>
-              <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">北河内地域の医療機関・介護事業者との連携を深め、シームレスな医療・介護の提供を目指します。</p>
+              <h4 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:4px;">在宅支援サービスの充実</h4>
+              <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">通所リハビリ・訪問看護・訪問リハビリ・居宅療養管理指導など、在宅生活を多面的に支援します。</p>
             </div>
           </div>
           <div class="about-point">
             <span class="about-point-num">03</span>
             <div>
-              <h4 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:4px;">継続的なリハビリ支援</h4>
-              <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">入院中から在宅移行まで、理学・作業・言語療法士によるリハビリテーションを提供します。</p>
+              <h4 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:4px;">地域の医療・介護ネットワーク</h4>
+              <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">寝屋川市・北河内地域の医療機関・介護事業者と連携し、切れ目のないサービスを提供します。</p>
             </div>
           </div>
         </div>
@@ -661,19 +630,17 @@
 
 
 <!-- ================================================
-     WELFARE SERVICES — §04
+     WELFARE SERVICES — §04（ネイビー背景は維持）
 ================================================= -->
 <section style="background:var(--navy);padding:5rem 1.5rem;" class="reveal" id="welfare">
   <div style="max-width:1280px;margin:0 auto;">
 
-    <!-- Section heading -->
     <div style="margin-bottom:2.5rem;">
-      <p class="font-garamond" style="font-style:italic;font-size:1.25rem;letter-spacing:.12em;color:rgba(255,255,255,0.2);margin-bottom:4px;">Welfare Services</p>
-      <h2 class="font-serif-jp" style="font-size:1.5rem;font-weight:700;color:#fff;">福祉サービス</h2>
+      <p class="font-garamond" style="font-style:italic;font-size:1.25rem;letter-spacing:.12em;color:rgba(255,255,255,0.2);margin-bottom:4px;">Home Care Services</p>
+      <h2 class="font-serif-jp" style="font-size:1.5rem;font-weight:700;color:#fff;">在宅サービス</h2>
       <div style="width:2rem;height:2px;background:var(--sage);margin-top:1rem;"></div>
     </div>
 
-    <!-- 2×2 grid -->
     <div style="display:grid;grid-template-columns:1fr;gap:1rem;" id="welfare-grid">
 
       <div class="welfare-card reveal reveal-d1">
@@ -685,18 +652,18 @@
           </div>
         </div>
         <p style="font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1rem;">自宅から通いながら、理学療法・作業療法によるリハビリテーションを受けることができます。機能回復と社会参加を支援します。</p>
-        <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;color:var(--sage);text-decoration:none;transition:gap .2s;">詳しく見る <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
+        <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;color:var(--sage);text-decoration:none;">詳しく見る <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
       </div>
 
       <div class="welfare-card reveal reveal-d2">
         <div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
           <span class="welfare-num">02</span>
           <div>
-            <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:4px;">CARE MANAGEMENT</p>
-            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:#fff;">居宅介護支援事業所</h3>
+            <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:4px;">HOME CARE MANAGEMENT</p>
+            <h3 class="font-serif-jp" style="font-size:1.0625rem;color:#fff;">居宅療養管理指導</h3>
           </div>
         </div>
-        <p style="font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1rem;">介護が必要になった方やそのご家族の相談を受け付け、ケアプランの作成から各種介護サービスの調整まで支援します。</p>
+        <p style="font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1rem;">医師・薬剤師・歯科衛生士などがご自宅を訪問し、療養上の管理・指導を行います。安心して在宅療養を続けるためのサポートをします。</p>
         <a href="#" style="display:inline-flex;align-items:center;gap:4px;font-size:.8125rem;color:var(--sage);text-decoration:none;">詳しく見る <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></a>
       </div>
 
@@ -735,7 +702,6 @@
 <section style="background:var(--warm-white);padding:5rem 1.5rem;" class="reveal" id="facilities">
   <div style="max-width:1280px;margin:0 auto;">
 
-    <!-- Section heading -->
     <div style="position:relative;margin-bottom:2.5rem;">
       <span class="section-ghost-num">05</span>
       <p class="section-en" style="position:relative;z-index:1;margin-bottom:4px;">Related Facilities</p>
@@ -743,68 +709,39 @@
       <div class="section-divider"></div>
     </div>
 
-    <!-- 4 cards -->
     <div style="display:grid;grid-template-columns:1fr;gap:1.25rem;" id="facility-grid">
 
       <a href="#" class="facility-card" style="text-decoration:none;display:block;">
         <div class="facility-thumb" style="background:linear-gradient(135deg,#e8ede8 0%,#c8d8cb 100%);"></div>
         <div style="padding:1.25rem;">
-          <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:6px;">NURSING HOME</p>
-          <h3 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:8px;">住宅型有料老人ホーム スマイル</h3>
-          <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">住み慣れた環境で安心して生活を続けていただける、住宅型有料老人ホームです。</p>
+          <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:6px;">CARE SUPPORT</p>
+          <h3 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:8px;">居宅介護支援事業所　かほく</h3>
+          <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">介護が必要になった方やそのご家族の相談を受け付け、ケアプランの作成から介護サービスの調整まで支援します。</p>
         </div>
       </a>
 
       <a href="#" class="facility-card" style="text-decoration:none;display:block;">
         <div class="facility-thumb" style="background:linear-gradient(135deg,#dce4ed 0%,#b8ccde 100%);"></div>
         <div style="padding:1.25rem;">
-          <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:6px;">CARE FACILITY</p>
-          <h3 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:8px;">介護老人保健施設及び診療所</h3>
-          <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">在宅復帰を目指す方の中間施設として、医療と介護の両面からサポートします。</p>
-        </div>
-      </a>
-
-      <a href="#" class="facility-card" style="text-decoration:none;display:block;">
-        <div class="facility-thumb" style="background:linear-gradient(135deg,#ede8e0 0%,#d8ccba 100%);"></div>
-        <div style="padding:1.25rem;">
           <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:6px;">HOME CARE STATION</p>
-          <h3 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:8px;">訪問ステーション及び診療所</h3>
-          <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">地域の方々が安心して在宅療養を続けられるよう、訪問診療・看護を提供します。</p>
-        </div>
-      </a>
-
-      <a href="#" class="facility-card" style="text-decoration:none;display:block;">
-        <div class="facility-thumb" style="background:linear-gradient(135deg,#e8e4d8 0%,#d0c8b0 100%);"></div>
-        <div style="padding:1.25rem;">
-          <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--sage);font-weight:500;margin-bottom:6px;">DAY REHAB</p>
-          <h3 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:8px;">デイリハ河北</h3>
-          <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">日中通いながらリハビリを受けられる、デイサービス型リハビリテーション施設です。</p>
+          <h3 class="font-serif-jp" style="font-size:.9375rem;color:var(--navy);margin-bottom:8px;">訪問介護ステーション　かほく</h3>
+          <p style="font-size:.8125rem;color:var(--text-mid);line-height:1.7;">ホームヘルパーがご自宅を訪問し、身体介護・生活援助を提供します。自立した生活を継続するためのサポートです。</p>
         </div>
       </a>
 
     </div>
 
-    <!-- External links (旧バナー群) -->
+    <!-- External links -->
     <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:8px;">
-      <a href="#" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--text-mid);border:1px solid var(--border);padding:6px 12px;border-radius:3px;text-decoration:none;transition:all .15s;"
+      <a href="https://kmnet.or.jp" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--text-mid);border:1px solid var(--border);padding:6px 12px;border-radius:3px;text-decoration:none;transition:all .15s;"
         onmouseover="this.style.borderColor='var(--navy)';this.style.color='var(--navy)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-mid)'">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         北河内地域医療ネットワーク
       </a>
-      <a href="#" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--text-mid);border:1px solid var(--border);padding:6px 12px;border-radius:3px;text-decoration:none;transition:all .15s;"
+      <a href="https://www.cahocu-clinic.com/" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--text-mid);border:1px solid var(--border);padding:6px 12px;border-radius:3px;text-decoration:none;transition:all .15s;"
         onmouseover="this.style.borderColor='var(--navy)';this.style.color='var(--navy)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-mid)'">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         河北クリニック
-      </a>
-      <a href="#" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--text-mid);border:1px solid var(--border);padding:6px 12px;border-radius:3px;text-decoration:none;transition:all .15s;"
-        onmouseover="this.style.borderColor='var(--navy)';this.style.color='var(--navy)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-mid)'">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        スマイルキッズ保育園
-      </a>
-      <a href="#" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--text-mid);border:1px solid var(--border);padding:6px 12px;border-radius:3px;text-decoration:none;transition:all .15s;"
-        onmouseover="this.style.borderColor='var(--navy)';this.style.color='var(--navy)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-mid)'">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        元気健診
       </a>
     </div>
 
@@ -813,7 +750,7 @@
 
 
 <!-- ================================================
-     RECRUITMENT BANNER
+     RECRUITMENT BANNER（ダーク背景は維持）
 ================================================= -->
 <section style="background:var(--navy-deep);padding:4rem 1.5rem;" class="reveal" id="recruit">
   <div style="max-width:1280px;margin:0 auto;">
@@ -822,7 +759,7 @@
         <p class="font-garamond" style="font-style:italic;font-size:1.125rem;letter-spacing:.12em;color:rgba(255,255,255,0.2);margin-bottom:8px;">Join Our Team</p>
         <h2 class="font-serif-jp" style="font-size:1.625rem;color:#fff;margin-bottom:12px;">共に、地域医療を支えませんか。</h2>
         <p style="font-size:.875rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:520px;">
-          河北病院は看護師・理学療法士・作業療法士・医療事務スタッフなど、幅広い職種で仲間を募集しています。地域に根ざした医療を共に届けましょう。
+          河北病院は看護師・理学療法士・作業療法士・医療事務スタッフなど、幅広い職種で仲間を募集しています。地域に根ざした医療・介護を共に届けましょう。
         </p>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;max-width:280px;">
@@ -833,7 +770,7 @@
         </a>
         <a href="#" style="display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:.875rem;padding:13px 24px;border-radius:3px;text-decoration:none;transition:background .15s;"
           onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">
-          看護師学校について
+          お問い合わせ
         </a>
       </div>
     </div>
@@ -842,78 +779,80 @@
 
 
 <!-- ================================================
-     FOOTER
+     FOOTER — 淡いセージグリーン背景
 ================================================= -->
-<footer style="background:var(--navy);padding:4rem 1.5rem 2rem;">
+<footer id="site-footer" style="padding:4rem 1.5rem 2rem;">
   <div style="max-width:1280px;margin:0 auto;">
     <div id="footer-grid" style="display:grid;grid-template-columns:1fr;gap:2.5rem;margin-bottom:2.5rem;">
 
       <!-- Hospital Info -->
       <div>
         <div style="margin-bottom:1.25rem;">
-          <p style="font-size:.5625rem;letter-spacing:.2em;color:rgba(255,255,255,0.35);font-family:'Noto Sans JP',sans-serif;margin-bottom:4px;">医療法人河北会</p>
-          <p class="font-serif-jp" style="font-size:1.5rem;color:#fff;font-weight:700;">河北病院</p>
+          <p style="font-size:.5625rem;letter-spacing:.2em;color:rgba(30,51,85,0.4);margin-bottom:4px;">医療法人河北会</p>
+          <p class="font-serif-jp" style="font-size:1.5rem;color:var(--navy);font-weight:700;">河北病院</p>
         </div>
-        <address style="font-style:normal;font-size:.8125rem;line-height:2;color:rgba(255,255,255,0.5);">
-          〒573-XXXX<br>
-          大阪府枚方市○○町X番X号<br>
-          TEL: 072-XXX-XXXX<br>
-          FAX: 072-XXX-XXXX
+        <address style="font-style:normal;font-size:.8125rem;line-height:2.1;color:var(--text-mid);">
+          〒572-0815<br>
+          大阪府寝屋川市河北東町19番1号<br>
+          TEL: 072-822-3663<br>
+          FAX: 072-822-4460
         </address>
+        <p style="font-size:.75rem;color:var(--text-mid);margin-top:.75rem;line-height:1.7;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:4px;"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+          JR学研都市線 四条畷駅 徒歩約10分
+        </p>
       </div>
 
       <!-- Nav Links -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
         <div>
-          <p style="font-size:.5625rem;letter-spacing:.2em;color:rgba(255,255,255,0.3);margin-bottom:.625rem;">診療・外来</p>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">入院・外来のご案内</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">外来の時間表</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">診療科の紹介</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">はじめての方へ</a>
+          <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--text-mid);margin-bottom:.625rem;font-weight:500;">診療・外来</p>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">入院・外来のご案内</a>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">外来の時間表</a>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">お見舞に来られる方へ</a>
         </div>
         <div>
-          <p style="font-size:.5625rem;letter-spacing:.2em;color:rgba(255,255,255,0.3);margin-bottom:.625rem;">病院について</p>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">基本理念・方針</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">病院の概要</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">マップと経路</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">採用情報</a>
+          <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--text-mid);margin-bottom:.625rem;font-weight:500;">病院について</p>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">基本理念・方針</a>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">病院の概要</a>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">マップと交通</a>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">採用情報</a>
         </div>
         <div>
-          <p style="font-size:.5625rem;letter-spacing:.2em;color:rgba(255,255,255,0.3);margin-bottom:.625rem;">福祉サービス</p>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">通所リハビリ</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">居宅介護支援</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">訪問看護</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">訪問リハビリ</a>
+          <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--text-mid);margin-bottom:.625rem;font-weight:500;">在宅サービス</p>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">通所リハビリ</a>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">居宅療養管理指導</a>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">訪問看護</a>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">訪問リハビリ</a>
         </div>
         <div>
-          <p style="font-size:.5625rem;letter-spacing:.2em;color:rgba(255,255,255,0.3);margin-bottom:.625rem;">関連施設</p>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">老人ホーム スマイル</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">介護老人保健施設</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">デイリハ河北</a>
-          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">河北クリニック</a>
+          <p style="font-size:.5625rem;letter-spacing:.2em;color:var(--text-mid);margin-bottom:.625rem;font-weight:500;">関連施設</p>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">居宅介護支援事業所 かほく</a>
+          <a href="#" style="display:block;padding:4px 0;font-size:.75rem;color:#777;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='#777'">訪問介護ステーション かほく</a>
         </div>
       </div>
 
-      <!-- Map placeholder -->
+      <!-- Map placeholder + misc links -->
       <div>
-        <div style="width:100%;aspect-ratio:16/10;background:#162848;border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+        <div style="width:100%;aspect-ratio:16/10;background:#dce8dc;border-radius:4px;border:1px solid #c4d4c5;display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
           <div style="text-align:center;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" style="margin:0 auto 6px;display:block;"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-            <p style="font-size:.6875rem;color:rgba(255,255,255,0.2);">大阪府枚方市</p>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(107,140,114,0.4)" stroke-width="1" style="margin:0 auto 6px;display:block;"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            <p style="font-size:.6875rem;color:var(--sage);">大阪府寝屋川市</p>
+            <p style="font-size:.625rem;color:var(--text-mid);margin-top:2px;">四条畷駅 徒歩約10分</p>
           </div>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="#" style="font-size:.6875rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='rgba(255,255,255,0.75)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">サイトマップ</a>
-          <a href="#" style="font-size:.6875rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='rgba(255,255,255,0.75)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">個人情報保護方針</a>
-          <a href="#" style="font-size:.6875rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='rgba(255,255,255,0.75)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">お問い合わせ</a>
+          <a href="#" style="font-size:.6875rem;color:var(--text-mid);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='var(--text-mid)'">サイトマップ</a>
+          <a href="#" style="font-size:.6875rem;color:var(--text-mid);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='var(--text-mid)'">個人情報保護方針</a>
+          <a href="#" style="font-size:.6875rem;color:var(--text-mid);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='var(--text-mid)'">お問い合わせ</a>
         </div>
       </div>
 
     </div>
 
-    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;display:flex;flex-direction:column;gap:4px;">
-      <p style="font-size:.6875rem;color:rgba(255,255,255,0.25);">© 2006 Kahoku Hospital. All Rights Reserved.</p>
-      <p class="font-garamond" style="font-style:italic;font-size:.75rem;color:rgba(255,255,255,0.15);">Medical Corporation Kahokukai</p>
+    <div style="border-top:1px solid rgba(0,0,0,0.1);padding-top:1.5rem;display:flex;flex-direction:column;gap:4px;">
+      <p style="font-size:.6875rem;color:rgba(0,0,0,0.35);">© 1985 Kahoku Hospital. All Rights Reserved.</p>
+      <p class="font-garamond" style="font-style:italic;font-size:.75rem;color:rgba(0,0,0,0.2);">Medical Corporation Kahokukai</p>
     </div>
   </div>
 </footer>
@@ -949,11 +888,10 @@
     header.classList.toggle('scrolled', window.scrollY > 8);
   }, { passive: true });
 
-  /* ---- Responsive layout switches ---- */
+  /* ---- Responsive layout ---- */
   function applyLayout() {
     const w = window.innerWidth;
 
-    // Desktop nav show/hide
     const desktopNav = document.getElementById('desktop-nav');
     const hamburger = document.getElementById('hamburger');
     if (w >= 1024) {
@@ -964,49 +902,34 @@
       hamburger.style.display = 'flex';
     }
 
-    // Hero: stack on mobile, side-by-side on desktop
     const heroInner = document.getElementById('hero-inner');
     const heroPhoto = document.getElementById('hero-photo');
     const badgeFacilities = document.getElementById('badge-facilities');
     const badgeDept = document.getElementById('badge-dept');
-    const quickAccess = document.getElementById('quick-access');
 
     if (w >= 1024) {
       heroInner.style.flexDirection = 'row';
       heroInner.style.alignItems = 'stretch';
-      heroInner.style.gap = '0';
       heroPhoto.style.flex = '0 0 45%';
       heroPhoto.style.paddingLeft = '3rem';
-      heroPhoto.style.paddingTop = '2rem';
+      heroPhoto.style.display = 'flex';
+      heroPhoto.style.flexDirection = 'column';
+      heroPhoto.style.justifyContent = 'center';
       badgeFacilities.style.display = 'block';
       badgeDept.style.display = 'block';
-      // Quick access horizontal on lg
-      quickAccess.style.flexDirection = 'column';
-    } else if (w >= 768) {
-      heroInner.style.flexDirection = 'column';
-      heroInner.style.gap = '2rem';
-      heroPhoto.style.flex = '';
-      heroPhoto.style.paddingLeft = '';
-      heroPhoto.style.paddingTop = '';
-      badgeFacilities.style.display = 'none';
-      badgeDept.style.display = 'none';
     } else {
       heroInner.style.flexDirection = 'column';
-      heroInner.style.gap = '2rem';
       heroPhoto.style.flex = '';
       heroPhoto.style.paddingLeft = '';
-      heroPhoto.style.paddingTop = '';
       badgeFacilities.style.display = 'none';
       badgeDept.style.display = 'none';
     }
 
-    // Medical cards grid: 1 col mobile, 3 col desktop
     const medGrid = document.getElementById('medical-grid');
     if (medGrid) {
       medGrid.style.gridTemplateColumns = w >= 1024 ? 'repeat(3,1fr)' : w >= 640 ? 'repeat(2,1fr)' : '1fr';
     }
 
-    // About: stack on mobile, 2-col on lg
     const aboutInner = document.getElementById('about-inner');
     const aboutPhoto = document.getElementById('about-photo');
     if (aboutInner) {
@@ -1022,19 +945,16 @@
       }
     }
 
-    // Welfare grid: 1 col mobile, 2 col md+
     const welfareGrid = document.getElementById('welfare-grid');
     if (welfareGrid) {
       welfareGrid.style.gridTemplateColumns = w >= 768 ? 'repeat(2,1fr)' : '1fr';
     }
 
-    // Facility grid: 1→2→4 col
     const facilGrid = document.getElementById('facility-grid');
     if (facilGrid) {
-      facilGrid.style.gridTemplateColumns = w >= 1024 ? 'repeat(4,1fr)' : w >= 640 ? 'repeat(2,1fr)' : '1fr';
+      facilGrid.style.gridTemplateColumns = w >= 768 ? 'repeat(2,1fr)' : '1fr';
     }
 
-    // Recruitment: stack on mobile, flex on md+
     const recruitInner = document.getElementById('recruit-inner');
     if (recruitInner) {
       if (w >= 768) {
@@ -1047,26 +967,26 @@
       }
     }
 
-    // Footer grid
     const footerGrid = document.getElementById('footer-grid');
     if (footerGrid) {
-      footerGrid.style.gridTemplateColumns = w >= 1024 ? '220px 1fr 220px' : '1fr';
+      footerGrid.style.gridTemplateColumns = w >= 1024 ? '240px 1fr 220px' : '1fr';
     }
 
-    // News section: side by side on lg
     const newsHead = document.getElementById('news-head');
     const newsInner = document.getElementById('news-inner');
-    if (newsInner && w >= 1024) {
-      newsInner.style.display = 'flex';
-      newsInner.style.gap = '4rem';
-      newsHead.style.width = '220px';
-      newsHead.style.flexShrink = '0';
-      newsHead.style.marginBottom = '0';
-    } else if (newsInner) {
-      newsInner.style.display = 'block';
-      newsHead.style.width = '';
-      newsHead.style.flexShrink = '';
-      newsHead.style.marginBottom = '2.5rem';
+    if (newsInner) {
+      if (w >= 1024) {
+        newsInner.style.display = 'flex';
+        newsInner.style.gap = '4rem';
+        newsHead.style.width = '220px';
+        newsHead.style.flexShrink = '0';
+        newsHead.style.marginBottom = '0';
+      } else {
+        newsInner.style.display = 'block';
+        newsHead.style.width = '';
+        newsHead.style.flexShrink = '';
+        newsHead.style.marginBottom = '2.5rem';
+      }
     }
   }
 
@@ -1088,7 +1008,7 @@
   /* ---- Scroll indicator fade ---- */
   window.addEventListener('scroll', () => {
     const ind = document.getElementById('scroll-ind');
-    if (ind) ind.style.opacity = window.scrollY > 60 ? '0' : '0.35';
+    if (ind) ind.style.opacity = window.scrollY > 60 ? '0' : '0.3';
   }, { passive: true });
 </script>
 
